@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html lang="en" ng-app="username_generator" class="no-js">
+<head>
+  <meta charset="utf-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <title>Username Generator</title>
+  <meta name="description" content="">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <link rel="stylesheet" href="bower_components/html5-boilerplate/dist/css/normalize.css">
+  <link rel="stylesheet" href="bower_components/html5-boilerplate/dist/css/main.css">
+  <link rel="stylesheet" href="bower_components/bootstrap/dist/css/bootstrap.min.css">
+  <link rel="stylesheet" href="app.css">
+  <script src="bower_components/html5-boilerplate/dist/js/vendor/modernizr-2.8.3.min.js"></script>
+
+  <script src="bower_components/angular/angular.js"></script>
+  <script src="bower_components/angular-route/angular-route.js"></script>
+  <script src="bower_components/jquery/dist/jquery.js"></script>
+  <script src="bower_components/bootstrap/dist/js/bootstrap.min.js"></script>
+  <script src="bower_components/angular-scroll/angular-scroll.js"></script>
+  <script src="bower_components/angular-random-words/angular-random-words.min.js"></script>
+  <script src="app.js"></script>
+</head>
+<body>
+  <div class="generatorApp" ng-controller="UsernameGeneratorCtrl">
+    <div class="container col-sm-9 form-container">
+      <form name="generator" ng-submit="createUsername()">
+        <div>
+          <input type="number" ng-model="generator.min_length"/>
+        </div>
+        <div>
+          <input type="number" ng-model="generator.max_length"/>
+        </div>
+        <div>
+          <label for="use_numbers">Use Numbers:</label>          
+          <input type="checkbox" id="use_numbers" ng-model="generator.use_numbers" checked="false"/>
+        </div>
+        <div>
+          <label for="use_underscores">Use Underscores:</label>
+          <input type="checkbox" id="use_underscores" ng-model="generator.use_underscores"/>
+        </div>
+        <div>
+          <label for="use_numbers_as_letters">Use Numbers As Letters:</label>
+          <input type="checkbox" id="use_numbers_as_letters" ng-model="generator.use_numbers_as_letters"/>
+        </div>
+        <div class="button-container">
+          <input type="submit" value="Create Username" />
+        </div>
+      </form>
+    </div>
+    <div id="username-completed" hidden>
+      <h4>Your username is:</h4>
+      <h2 id="generated-username">{{username}}</h2>
+    </div>
+  </div>
+</body>
+</html>

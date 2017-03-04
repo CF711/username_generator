@@ -1,0 +1,6 @@
+.container {
+	background-color: #F5F5F5;
+	overflow-y: scroll;
+	top: 0;
+	bottom: 0;
+}
