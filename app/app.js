@@ -32,11 +32,17 @@ angular.module('username_generator', ['ngRoute', 'duScroll', 'random-words'])
 		max_length: 20
 	}
 
+	$scope.$watch(function($scope) {
+		return $scope.generator.min_length;
+	}, function(val) {
+		document.getElementById('max_username_size').min = val;
+	})
+
 	$scope.createUsername = function() {
 		$scope.name_length = 0;
 		var generator = $scope.generator;
 		var min_length = ($scope.generator.min_length) ? $scope.generator.min_length : $scope.modifiers.min_length;
-		var max_length = ($scope.generator.max_length) ? $scope.generator.max_length : $scope.modifiers.max_length;
+		var max_length = ($scope.generator.max_length && $scope.generator.max_length > $scope.generator.min_length) ? $scope.generator.max_length : $scope.modifiers.max_length;
 		var usernameArray = [];
 		var before = (Math.random() > 0.5) ? true : false;
 

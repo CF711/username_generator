@@ -25,10 +25,10 @@
     <div class="container col-sm-9 form-container">
       <form name="generator" ng-submit="createUsername()">
         <div>
-          <input type="number" ng-model="generator.min_length"/>
+          <input type="number" id="min_username_size" min="1" ng-model="generator.min_length"/>
         </div>
         <div>
-          <input type="number" ng-model="generator.max_length"/>
+          <input type="number" id="max_username_size" min="generator.min_length" max="40" ng-model="generator.max_length"/>
         </div>
         <div>
           <label for="use_numbers">Use Numbers:</label>          
